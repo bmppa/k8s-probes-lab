@@ -25,7 +25,7 @@ kubectl apply -f nginx-probes.yaml
 
 ## 🧪 Step 2: Test Behavior
 
-### 3.1 Watch the pod status
+### 2.1 Watch the pod status
 
 ```bash
 kubectl get pods --selector=app=nginx-probe -w
@@ -43,7 +43,7 @@ Let's fix this.
 
 ---
 
-### 3.2 Fix the Readiness Probe
+### 2.2 Fix the Readiness Probe
 
 ```bash
 kubectl exec <pod-name> -- touch /tmp/ready
@@ -53,7 +53,7 @@ kubectl get pod --selector=app=nginx-probe -w
 
 The pod should now be in a ready state.
 
-### 3.3 Simulate **Liveness Failure**
+### 2.3 Simulate **Liveness Failure**
 
 Now that our pod is ready and serving traffic, let's simulate a crash.
 
