@@ -37,7 +37,7 @@ You should see that the pod is running but it is not in a ready state. This is b
 kubectl describe pod <pod-name>
 ```
 
-"... Readiness probe failed: cat: /tmp/ready: No such file or directory"
+`"... Readiness probe failed: cat: /tmp/ready: No such file or directory"`
 
 Let's fix this.
 
@@ -49,10 +49,6 @@ Let's fix this.
 kubectl exec <pod-name> -- touch /tmp/ready
 
 kubectl get pod --selector=app=nginx-probe -w
-
-kubectl run busybox --image busybox -- sleep 3600
-
-kubectl exec busybox -- wget nginx-probe-svc.default.svc
 ```
 
 The pod should now be in a ready state.
